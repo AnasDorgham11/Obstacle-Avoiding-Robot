@@ -1,0 +1,35 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+OBJ_SRCS := 
+S_SRCS := 
+ASM_SRCS := 
+C_SRCS := 
+S_UPPER_SRCS := 
+O_SRCS := 
+FLASH_IMAGE := 
+ELFS := 
+OBJS := 
+ASM_DEPS := 
+EEPROM_IMAGE := 
+S_DEPS := 
+SIZEDUMMY := 
+S_UPPER_DEPS := 
+LSS := 
+C_DEPS := 
+
+# Every subdirectory with source files must be described here
+SUBDIRS := \
+APP \
+HAL/CAR/_2_WHEELS/MOVEMENT \
+HAL/H_BRIDGE/L293 \
+HAL/LCD \
+HAL/SERVO \
+HAL/ULTRASONIC \
+LIB/DELAY \
+MCAL/DIO \
+MCAL/INTERRUPT/EXTERNAL \
+MCAL/INTERRUPT \
+MCAL/TIMER \
+
