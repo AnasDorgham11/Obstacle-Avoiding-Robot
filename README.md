@@ -13,7 +13,9 @@ This repository contains the code, schematic and design files for an Obstacle-Av
 
 # Components
 - 2x BO DC Motor
-- 2x Wheels
+- 2x Wheel with Tier
+- 1x Caster Wheel
+- 2x Car Chassis
 - 4x 3.7V Li-ion Battery
 - 1x Buck Converter (Step-down Converter)
 - 1x Ultrasonic Sensor
@@ -24,6 +26,7 @@ This repository contains the code, schematic and design files for an Obstacle-Av
 - 1x 330Ω resistors
 - 1x LED
 - 1x AMIT Kit (Includes ATmega32A, Crystal Oscillators, Resistors, Capacitors, a Reset Push Button, a Power On/Off Switch, potentiometers and Power Supply Ports)
+- Screws and Nuts
 - Jumper Wires
 
 # How It Works
