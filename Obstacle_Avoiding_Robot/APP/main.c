@@ -86,6 +86,7 @@ int main(){
 		PrintDistance();												// Print distance on LCD after the echo gets a response.
 		if (ULTRASONIC_GetDistance_cm_() > OBSTACLE_THRESHOLD_CM_){
 
+			// Checking if direction was not set as forward, to call the next lines when only needed.
 			if (direction != FORWARD){
 				PrintDirection(CAR_FORWARD);							// Print the direction as "Forward".
 				CAR_MOVEMENT_Forward();									// Move the car in forward direction.
@@ -96,7 +97,7 @@ int main(){
 			continue;													// Skip the rest of the code and enter the loop again.
 		}
 
-		// Checking if the direction is non-forward and if the distance is greater than 35cm, to ensure calling CAR_MOVEMENT_Forward() when only needed.
+		// If the distance read from the front of the car is less than 45, ...
 		CAR_MOVEMENT_Stop();
 		direction = NON_FORWARD;										// Change the direction to be non-forward.
 		LCD_GoToPosition(UPPER_ROW,5);
@@ -109,7 +110,7 @@ int main(){
 			CAR_MOVEMENT_Right();										// Rotate the car to the right.
 			_delay_ms(450);												// The rotation takes 450ms to rotate by 90 degrees to the right.
 		}
-		// If the distance read for the right of the car is greater than 15, ...
+		// If the distance read from the right of the car is less than 45, ...
 		else{
 			SERVO_90_CCW();												// Rotate the servo motor into the left of the car.
 			ULTRASONIC_TRIG_Send();										// Send an ultrasonic trigger (with a delay inside to wait the echo).
