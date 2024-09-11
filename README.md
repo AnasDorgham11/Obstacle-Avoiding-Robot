@@ -1,4 +1,4 @@
-# Emb-Alex-41-Obstacle-Avoiding-Robot
+# Obstacle-Avoiding Robot (ATmeag32)
 This repository contains the code, schematic and design files for an Obstacle-Avoiding Robot, developed as the graduation project for the AMIT Embedded Systems / Alex 41 Diploma. The robot autonomously navigates its environment, using an ultrasonic sensor mounted on a servo motor to detect obstacles and make movement decisions. The codes work with ATmega32, ATmega32A and their counterparts.
 
 # Team Members 
