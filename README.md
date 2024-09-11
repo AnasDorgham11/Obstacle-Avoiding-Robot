@@ -19,6 +19,10 @@ This repository contains the code, schematic and design files for an Obstacle-Av
 - 1x Ultrasonic Sensor
 - 1x Servo Motor
 - 1x LCD (16x2)
+- 1x L293D (H-Bridge)
+- 2x 100nF capacitors
+- 1x 330Ω resistors
+- 1x LED
 - 1x AMIT Kit (Includes ATmega32A, Crystal Oscillators, Resistors, Capacitors, a Reset Push Button, a Power On/Off Switch, and Power Supply Ports)
 - Jumper Wires
 
