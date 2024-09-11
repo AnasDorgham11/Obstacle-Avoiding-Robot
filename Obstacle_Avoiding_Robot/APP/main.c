@@ -86,7 +86,6 @@ int main(){
 		PrintDistance();												// Print distance on LCD after the echo gets a response.
 		if (ULTRASONIC_GetDistance_cm_() > OBSTACLE_THRESHOLD_CM_){
 
-			// Checking if direction was not set as forward, to call the next lines when only needed.
 			if (direction != FORWARD){
 				PrintDirection(CAR_FORWARD);							// Print the direction as "Forward".
 				CAR_MOVEMENT_Forward();									// Move the car in forward direction.
