@@ -98,8 +98,8 @@ void TIMER_Timer0_Init(TIMER0_mode_of_operation mode, TIMER0_prescaler prescaler
 		SET_BIT(TCCR0, CS02);
 		break;
 	}
-//	TIMER_TIFR_ClearFlag(TOV0);
-//	TIMER_TIFR_ClearFlag(OCF0);
+	TIMER_TIFR_ClearFlag(TOV0);
+	TIMER_TIFR_ClearFlag(OCF0);
 	TCNT0 = 0;
 }
 
@@ -355,6 +355,9 @@ void TIMER_Timer1_Init(TIMER1_mode_of_operation mode, TIMER1_prescaler  prescale
 		SET_BIT(TCCR1B, CS12);
 		break;
 	}
+	TIMER_TIFR_ClearFlag(TOV1);
+	TIMER_TIFR_ClearFlag(OCF1A);
+	TIMER_TIFR_ClearFlag(OCF1B);
 	TIMER_Timer1_TCNT1_Set(0);
 }
 
@@ -627,6 +630,8 @@ void TIMER_Timer2_Init(TIMER2_mode_of_operation mode, TIMER2_prescaler prescaler
 		SET_BIT(TCCR2, CS22);
 		break;
 	}
+	TIMER_TIFR_ClearFlag(TOV2);
+	TIMER_TIFR_ClearFlag(OCF2);
 	TCNT2 = 0;
 }
 
