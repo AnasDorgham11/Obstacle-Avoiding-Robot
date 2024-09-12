@@ -102,7 +102,7 @@ void CAR_MOVEMENT_SameSpeed_SetDirection_SetSpeedPercentage(CAR_directions direc
 /* Controlling motors having different speeds */
 
 void CAR_MOVEMENT_DifferentSpeeds_SetSpeedPercentages(double motor1_speed, double motor2_speed){
-	TIMER_Timer1_ICR1_Set(255);																	// Setting the top of Timer1 (ICR1) as 255 to be like Timer2 which is only 8-bits counter.
+	TIMER_Timer1_ICR1_Set(255);																	// Set the top of Timer1 (ICR1) as 255 to be like Timer2 which is only 8-bits counter.
 	TIMER_Timer1_OCR1A_Set((motor1_speed == 0) ? 0 : (u8_t) ((motor1_speed * 256) / 100) - 1); 	// If speed equals 0, OCR1A = 0, otherwise OCR1A = (u8_t) ((speed * 256) / 100) - 1
 	OCR2 = ((motor2_speed == 0) ? 0 : (u8_t) ((motor2_speed * 256) / 100) - 1);					// If speed equals 0, OCR2 = 0, otherwise OCR2 = (u8_t) ((speed * 256) / 100) - 1
 	/*
