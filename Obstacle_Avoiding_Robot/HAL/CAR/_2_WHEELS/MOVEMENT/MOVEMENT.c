@@ -61,7 +61,13 @@ void CAR_MOVEMENT_Stop(void){
 
 /* Controlling motors having the same speed */
 void CAR_MOVEMENT_SameSpeed_SetSpeedPercentage(double speed){
-	OCR2 = (u8_t) ((speed * 256) / 100) - 1;
+	OCR2 = (speed == 0) ? 0 : (u8_t) ((speed * 256) / 100) - 1;		// If speed equals 0, OCR2 = 0, otherwise OCR2 = (u8_t) ((speed * 256) / 100) - 1
+	/*
+	 * NOTE:
+	 * 		- One is subtracted from the calculation because the calculation gives the number of ticks while OCR2 starts from 0.
+	 * 		- Making a special condition for speed = 0 to avoid subtracting 1, which would lead to 0 - 1 = 255.
+	 *
+	 */
 	TIMER_Timer2_OC_EnableInterrupt();
 	TIMER_Timer2_OV_EnableInterrupt();
 	TIMER_Timer2_Init(TIMER2_FAST_PWM, TIMER2_PRESCALER_64);
@@ -96,9 +102,15 @@ void CAR_MOVEMENT_SameSpeed_SetDirection_SetSpeedPercentage(CAR_directions direc
 /* Controlling motors having different speeds */
 
 void CAR_MOVEMENT_DifferentSpeeds_SetSpeedPercentages(double motor1_speed, double motor2_speed){
-	TIMER_Timer1_ICR1_Set(255);											// Setting the top of Timer1 (ICR1) as 255 to be like Timer2 which is only 8-bits counter.
-	TIMER_Timer1_OCR1A_Set((u8_t) ((motor1_speed * 256) / 100) - 1);
-	TIMER_Timer2_OCR2_Set((u8_t) ((motor2_speed * 256) / 100) - 1);
+	TIMER_Timer1_ICR1_Set(255);																	// Setting the top of Timer1 (ICR1) as 255 to be like Timer2 which is only 8-bits counter.
+	TIMER_Timer1_OCR1A_Set((motor1_speed == 0) ? 0 : (u8_t) ((motor1_speed * 256) / 100) - 1); 	// If speed equals 0, OCR1A = 0, otherwise OCR1A = (u8_t) ((speed * 256) / 100) - 1
+	OCR2 = ((motor2_speed == 0) ? 0 : (u8_t) ((motor2_speed * 256) / 100) - 1);					// If speed equals 0, OCR2 = 0, otherwise OCR2 = (u8_t) ((speed * 256) / 100) - 1
+	/*
+	 * NOTE:
+	 * 		- One is subtracted from the calculation because the calculations gives the number of ticks while OCR1A and OCR2 start from 0.
+	 * 		- Making a special condition for speed = 0 to avoid subtracting 1, which would lead to 0 - 1 = 255 for Timer2 or 65,535 for Timer1.
+	 *
+	 */
 	TIMER_Timer1_OCA_EnableInterrupt();
 	TIMER_Timer1_IC_EnableInterrupt();
 	TIMER_Timer2_OC_EnableInterrupt();
