@@ -22,7 +22,7 @@
 #define OBSTACLE_THRESHOLD_CM_ 		45
 
 /* Variables */
-u8_t direction = FORWARD;
+u8_t direction;
 
 
 /********************************\
